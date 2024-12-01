@@ -4,41 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Quiz</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
-        .question { margin: 20px 0; }
-        .button { margin: 5px; padding: 10px 20px; background-color: #f0f0f0; border: 1px solid #ccc; cursor: pointer; }
-        .button:hover { background-color: #ddd; }
-        .correct { background-color: #4CAF50; color: white; }
-        .incorrect { background-color: #f44336; color: white; }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Music Quiz</h1>
-    
-    <div class="question">
-        <p>1. How is Japanese music often described?</p>
-        <button class="button" onclick="checkAnswer(this, true)">B. Gentle and meditative</button>
-        <button class="button" onclick="checkAnswer(this, false)">A. Fast and rhythmic</button>
-        <button class="button" onclick="checkAnswer(this, false)">C. Loud and dynamic</button>
-        <button class="button" onclick="checkAnswer(this, false)">D. Melancholic</button>
+    <div class="quiz-container">
+        <h1>Quiz: Music, Arts, Health, and Physical Education</h1>
+        
+        <!-- Question 1 -->
+        <div class="question">
+            <h3>1. How is Chinese music described?</h3>
+            <input type="radio" id="q1a" name="q1" value="A"> A. It is gentle and lyrical<br>
+            <input type="radio" id="q1b" name="q1" value="B"> B. It is loud and aggressive<br>
+            <input type="radio" id="q1c" name="q1" value="C"> C. It is rhythmic<br>
+            <input type="radio" id="q1d" name="q1" value="D"> D. It is chaotic<br>
+        </div>
+
+        <!-- Add more questions here, following the same structure -->
+        
+        <button id="submit">Submit Quiz</button>
+        <div id="results"></div>
     </div>
 
-    <script>
-        function checkAnswer(button, isCorrect) {
-            if (isCorrect) {
-                button.classList.add('correct');
-                button.textContent += " ✓";
-            } else {
-                button.classList.add('incorrect');
-                button.textContent += " ✗";
-            }
-            // Disable all buttons in the current question
-            const buttons = button.parentNode.getElementsByClassName('button');
-            for (let i = 0; i < buttons.length; i++) {
-                buttons[i].disabled = true;
-            }
-        }
-    </script>
+    <script src="quiz.js"></script>
 </body>
 </html>
