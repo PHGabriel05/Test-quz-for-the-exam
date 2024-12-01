@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+        .question { margin: 20px 0; }
+        .button { margin: 5px; padding: 10px 20px; background-color: #f0f0f0; border: 1px solid #ccc; cursor: pointer; }
+        .button:hover { background-color: #ddd; }
+        .correct { background-color: #4CAF50; color: white; }
+        .incorrect { background-color: #f44336; color: white; }
+    </style>
+</head>
+<body>
+    <h1>Music Quiz</h1>
+    
+    <div class="question">
+        <p>1. How is Japanese music often described?</p>
+        <button class="button" onclick="checkAnswer(this, true)">B. Gentle and meditative</button>
+        <button class="button" onclick="checkAnswer(this, false)">A. Fast and rhythmic</button>
+        <button class="button" onclick="checkAnswer(this, false)">C. Loud and dynamic</button>
+        <button class="button" onclick="checkAnswer(this, false)">D. Melancholic</button>
+    </div>
+
+    <script>
+        function checkAnswer(button, isCorrect) {
+            if (isCorrect) {
+                button.classList.add('correct');
+                button.textContent += " ✓";
+            } else {
+                button.classList.add('incorrect');
+                button.textContent += " ✗";
+            }
+            // Disable all buttons in the current question
+            const buttons = button.parentNode.getElementsByClassName('button');
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].disabled = true;
+            }
+        }
+    </script>
+</body>
+</html>
